@@ -16,6 +16,14 @@ state = {
     filter: "",
   };
 
+  componentDidMount() {
+    localStorage.getItem('state', JSON.stringify(this.state));
+  }
+
+  componentDidUpdate() {
+    localStorage.setItem('state', JSON.stringify(this.state));
+  }
+
   addContact = event => {
     const loweredCase = event.name.toLowerCase().trim();
     const searchName = this.state.contacts
@@ -42,6 +50,9 @@ state = {
   };
 
   getVisibleContacts = () => {
+    // const localStorageContacts = JSON.parse(localStorage.getItem('state'));
+    // console.log(localStorageContacts)
+    // const { filter, contacts } = localStorageContacts;
     const { filter, contacts } = this.state;
 
     return contacts.filter(contacts => contacts.name.toLowerCase().includes(filter.toLowerCase()))
