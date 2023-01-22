@@ -51,10 +51,10 @@ state = {
   };
 
   getVisibleContacts = () => {
-    const localStorageContacts = JSON.parse(localStorage.getItem('state'));
-    console.log(localStorageContacts)
-    const { filter, contacts } = localStorageContacts;
-    // const { filter, contacts } = this.state;
+    // const localStorageContacts = JSON.parse(localStorage.getItem('state'));
+    // console.log(localStorageContacts)
+    // const { filter, contacts } = localStorageContacts;
+    const { filter, contacts } = this.state;
 
     return contacts.filter(contacts => contacts.name.toLowerCase().includes(filter.toLowerCase()))
   };
