@@ -17,16 +17,17 @@ state = {
   };
 
   componentDidMount() {
-    const localStorageContacts = JSON.parse(localStorage.getItem('state'));
+    const localStorageContacts = JSON.parse(localStorage.getItem('contacts'));
     if (localStorageContacts) {
-      this.setState({state: localStorageContacts})
+      this.setState({ contacts: localStorageContacts });
     }
     console.log(localStorageContacts);
   }
 
   componentDidUpdate(prevState) {
-      if(this.state.contacts !== prevState.contacts)
-      localStorage.setItem('state', JSON.stringify(this.state.contacts));
+      const { contacts }=this.state;
+      if(contacts !== prevState.contacts)
+      localStorage.setItem('contacts', JSON.stringify(contacts));
   }
 
   addContact = event => {
