@@ -15,9 +15,9 @@ export default function Filter({ value, onChangeFilter }) {
                 />
             </ContainerFilter>
         )
-    }
+};
 
 Filter.propTypes = {
     value: PropTypes.string.isRequired,
     onChangeFilter: PropTypes.func.isRequired,
-}
+};
